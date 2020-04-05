@@ -2,13 +2,10 @@
 {% load wagtailcore_tags %}
 
 {% block content %}
-{% include "base/include/header-hero.html" %}
 
-<div class="container form-page-thanks">
-    <div class="row">
-        <div class="col-md-7">
-            {{ page.thank_you_text|richtext }}
-        </div>
+<div class="w3-container w3-white w3-animate-right w3-center w3-xxlarge formpage contactform">
+    <div class="w3-container w3-padding-large w3-center">
+        <h1>{{ page.thank_you_text|richtext }}</h1>
     </div>
 </div>
 {% endblock content %}

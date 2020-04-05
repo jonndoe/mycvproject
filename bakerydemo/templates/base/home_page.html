@@ -65,11 +65,19 @@
       a point to allow recreation of creature brain in software.
     </h4>
     <h3 class="w3-padding-16">My Skills</h3>
+    <p class="w3-wide">W3CSS</p>
+    <div class="w3-light-grey">
+      <div class="w3-container w3-center w3-padding-small w3-teal" style="width:50%">50%</div>
+    </div>
     <p class="w3-wide">Django</p>
     <div class="w3-light-grey">
       <div class="w3-container w3-center w3-padding-small w3-teal" style="width:43%">43%</div>
     </div>
     <p class="w3-wide">Python</p>
+    <div class="w3-light-grey">
+      <div class="w3-container w3-center w3-padding-small w3-teal" style="width:40%">40%</div>
+    </div>
+    <p class="w3-wide">WagtailCMS</p>
     <div class="w3-light-grey">
       <div class="w3-container w3-center w3-padding-small w3-teal" style="width:40%">40%</div>
     </div>
@@ -97,7 +105,15 @@
     <div class="w3-light-grey">
       <div class="w3-container w3-center w3-padding-small w3-teal" style="width:30%">30%</div>
     </div>
+    <p class="w3-wide">Bootstrap</p>
+    <div class="w3-light-grey">
+      <div class="w3-container w3-center w3-padding-small w3-teal" style="width:15%">15%</div>
+    </div>
     <p class="w3-wide">Postgresql</p>
+    <div class="w3-light-grey">
+      <div class="w3-container w3-center w3-padding-small w3-teal" style="width:15%">15%</div>
+    </div>
+    <p class="w3-wide">Vue</p>
     <div class="w3-light-grey">
       <div class="w3-container w3-center w3-padding-small w3-teal" style="width:15%">15%</div>
     </div>
@@ -134,6 +150,19 @@
   </div>
 
   <!-- Contact Section -->
+
+
+
+
+
+
+
+
+
+
+
+
+
   <div class="w3-padding-32 w3-content w3-text-grey" id="contact" style="margin-bottom:64px">
     <h2>Contact Me</h2>
     <hr class="w3-opacity">
@@ -144,18 +173,14 @@
       <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: mail@mail.com</p>
     </div>
 
-    <p>Lets get in touch. Send me a message:</p>
-    <form action="/action_page.php" target="_blank">
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Email" required name="Email"></p>
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Subject" required name="Subject"></p>
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message" required name="Message"></p>
-      <p>
-        <button class="w3-button w3-light-grey w3-padding-large" type="submit">
-          <i class="fa fa-paper-plane"></i> SEND MESSAGE
-        </button>
-      </p>
-    </form>
+    <h3>Send me a message:</h3>
+  {% if page.featured_section_1 %}
+                    <a href="{{page.featured_section_1.url}}">
+                        <button class="w3-button w3-teal w3-padding-large" type="submit">
+                          <i class="fa fa-paper-plane"></i> SEND MESSAGE
+                        </button>
+                    </a>
+  {% endif %}
   <!-- End Contact Section -->
   </div>
 

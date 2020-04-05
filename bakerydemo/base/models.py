@@ -22,6 +22,8 @@ from wagtail.snippets.models import register_snippet
 
 from .blocks import BaseStreamBlock
 
+from django.forms import widgets  # used to find TextArea widget
+
 
 @register_snippet
 class People(index.Indexed, ClusterableModel):
@@ -369,3 +371,23 @@ class FormPage(AbstractEmailForm):
             FieldPanel('subject'),
         ], "Email"),
     ]
+
+
+    def get_form(self, *args, **kwargs):
+        form = super().get_form(*args, **kwargs)
+        # form = super(AbstractEmailForm, self).get_form(*args, **kwargs)  # use this syntax for Python 2.x
+        # iterate through the fields in the generated form
+        for name, field in form.fields.items():
+            # here we want to adjust the widgets on each field
+            field.widget.attrs.update({'placeholder': field.help_text})
+            # if the field is a TextArea - adjust the rows
+            if isinstance(field.widget, widgets.Textarea):
+                field.widget.attrs.update({'rows': '5'})
+            # for all fields, get any existing CSS classes and add 'form-control'
+            # ensure the 'class' attribute is a string of classes with spaces
+            css_classes = field.widget.attrs.get('class', '').split()
+            css_classes.append('form-control')
+            field.widget.attrs.update({'class': ' '.join(css_classes)})
+        return form
+
+

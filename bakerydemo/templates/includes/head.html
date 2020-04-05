@@ -8,7 +8,6 @@
     <title>
         {% block title %}
             {% block title_prefix %}
-                Wagtail demo bakery
             {% endblock %}
             {% if self.seo_title %}
                 {{ self.seo_title }}
@@ -43,9 +42,8 @@
         < !-- script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js" -->
         <!-- script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" -->
 
+    <!--[endif]-->
 
-    <![endif]-->
-    
     {% block head-extra %}
     {% endblock head-extra %}
 </head>
