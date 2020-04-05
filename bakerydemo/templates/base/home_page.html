@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+{% load wagtailimages_tags wagtailcore_tags %}
+
+{% block content %}
+
+<!-- Sidebar with image -->
+{% image page.image fill-1920x1920 as image %}
+<nav class="w3-sidebar w3-hide-medium w3-hide-small" style="width:40%">
+  <div class="bgimg w3-greyscale-max" style="background-image:url('{{ image.url }}')"></div>
+</nav>
+
+
+<!-- Page Content -->
+<div class="w3-main w3-padding-large" style="margin-left:40%">
+
+  <!-- Menu icon to open sidebar -->
+  <span class="w3-button w3-top w3-white w3-xxlarge w3-text-grey w3-hover-text-black" style="width:auto;right:0;" onclick="openNav()"><i class="fa fa-bars"></i></span>
+
+  <!-- Header -->
+  <header class="w3-container w3-center" style="padding:128px 16px" id="home">
+    <h1 class="w3-jumbo"><b>Vasily Lukichev</b></h1>
+    <p>Programming and researching are in progress.</p>
+    <img src="{{ image.url }}" class="w3-image w3-hide-large w3-hide-small w3-round" style="display:block;width:60%;margin:auto;">
+    <img src="{{ image.url }}" class="w3-image w3-hide-large w3-hide-medium w3-round" width="1000" height="1333">
+    <a href="https://github.com/jonndoe">
+      <button class="w3-button w3-light-grey w3-padding-large w3-margin-top">
+      <p>GitHub <b>jonndoe</b></p>
+      </button>
+    </a>
+  </header>
+
+
+  {% if page.featured_section_3 %}
+  <!-- Portfolio Section -->
+  <div class="w3-padding-32 w3-content" id="portfolio">
+    <h2 class="w3-text-grey">{{ page.featured_section_3_title }}</h2>
+    <hr class="w3-opacity">
+    <!-- Grid for photos -->
+    <div class="w3-row-padding" style="margin:0 -16px">
+            {% for childpage in page.featured_section_3.specific.children|slice:"6" %}
+                <div class="w3-half container-hover">
+                    <a href="{{childpage.url}}">
+                      {% image childpage.image fill-430x254-c100 as image %}
+                        <img class="image-hover" src="{{ image.url }}" style="width:100%">
+                        <div class="w3-container middle-hover">
+                          <h3 class="w3-teal w3-text-white text-hover">{{childpage.title}}</h3>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+    <!-- End photo grid -->
+    </div>
+  <!-- End Portfolio Section -->
+  </div>
+  {% endif %}
+
+
+  <!-- About Section -->
+  <div class="w3-content w3-justify w3-text-grey w3-padding-32" id="about">
+    <h2>About</h2>
+    <hr class="w3-opacity">
+    <h4> In progress of learning about programming. Interesting in concepts of Neural Networks,
+      Deep Neural Networks, Computer vision. Hope tru intelligent machines are close for
+      the purpose of humanity and Earth prosperity. Hope one day the technology comes to
+      a point to allow recreation of creature brain in software.
+    </h4>
+    <h3 class="w3-padding-16">My Skills</h3>
+    <p class="w3-wide">Django</p>
+    <div class="w3-light-grey">
+      <div class="w3-container w3-center w3-padding-small w3-teal" style="width:43%">43%</div>
+    </div>
+    <p class="w3-wide">Python</p>
+    <div class="w3-light-grey">
+      <div class="w3-container w3-center w3-padding-small w3-teal" style="width:40%">40%</div>
+    </div>
+    <p class="w3-wide">Web Design</p>
+    <div class="w3-light-grey">
+      <div class="w3-container w3-center w3-padding-small w3-teal" style="width:35%">35%</div>
+    </div>
+    <p class="w3-wide">JavaScript</p>
+    <div class="w3-light-grey">
+      <div class="w3-container w3-center w3-padding-small w3-teal" style="width:35%">35%</div>
+    </div>
+    <p class="w3-wide">Docker</p>
+    <div class="w3-light-grey">
+      <div class="w3-container w3-center w3-padding-small w3-teal" style="width:30%">30%</div>
+    </div>
+    <p class="w3-wide">CSS</p>
+    <div class="w3-light-grey">
+      <div class="w3-container w3-center w3-padding-small w3-teal" style="width:35%">35%</div>
+    </div>
+    <p class="w3-wide">HTML</p>
+    <div class="w3-light-grey">
+      <div class="w3-container w3-center w3-padding-small w3-teal" style="width:30%">30%</div>
+    </div>
+    <p class="w3-wide">Git</p>
+    <div class="w3-light-grey">
+      <div class="w3-container w3-center w3-padding-small w3-teal" style="width:30%">30%</div>
+    </div>
+    <p class="w3-wide">Postgresql</p>
+    <div class="w3-light-grey">
+      <div class="w3-container w3-center w3-padding-small w3-teal" style="width:15%">15%</div>
+    </div>
+    <p class="w3-wide">Java</p>
+    <div class="w3-light-grey">
+      <div class="w3-container w3-center w3-padding-small w3-teal" style="width:10%">10%</div>
+    </div>
+    <p class="w3-wide">C</p>
+    <div class="w3-light-grey">
+      <div class="w3-container w3-center w3-padding-small w3-teal" style="width:5%">5%</div>
+    </div>
+    <br>
+
+    <div class="w3-row w3-center w3-dark-grey w3-padding-16 w3-section">
+      <div class="w3-quarter w3-section">
+        <span class="w3-xlarge">3+</span><br>
+        Years learning
+      </div>
+      <div class="w3-quarter w3-section">
+        <span class="w3-xlarge">25+</span><br>
+        Hobby Projects Done
+      </div>
+      <div class="w3-quarter w3-section">
+        <span class="w3-xlarge">Countless Nights</span><br>
+        Typing
+      </div>
+      <div class="w3-quarter w3-section">
+        <span class="w3-xlarge">1</span><br>
+        Django book contributor
+      </div>
+    </div>
+
+  <!-- End About Section -->
+  </div>
+
+  <!-- Contact Section -->
+  <div class="w3-padding-32 w3-content w3-text-grey" id="contact" style="margin-bottom:64px">
+    <h2>Contact Me</h2>
+    <hr class="w3-opacity">
+
+    <div class="w3-section">
+      <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> St.Petersburg, Russia</p>
+      <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Phone: +00 151515</p>
+      <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: mail@mail.com</p>
+    </div>
+
+    <p>Lets get in touch. Send me a message:</p>
+    <form action="/action_page.php" target="_blank">
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Email" required name="Email"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Subject" required name="Subject"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message" required name="Message"></p>
+      <p>
+        <button class="w3-button w3-light-grey w3-padding-large" type="submit">
+          <i class="fa fa-paper-plane"></i> SEND MESSAGE
+        </button>
+      </p>
+    </form>
+  <!-- End Contact Section -->
+  </div>
+
+  <!-- Footer -->
+  <footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-opacity w3-xlarge" style="margin:-24px">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <a href="https://github.com/jonndoe"><i class="fa fa-github w3-hover-opacity"></i></a>
+    <p class="w3-medium">Vasily Lukichev 2020</p>
+  <!-- End footer -->
+  </footer>
+
+<!-- END PAGE CONTENT -->
+</div>
+{% endblock content %}

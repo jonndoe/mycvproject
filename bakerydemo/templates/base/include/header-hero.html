@@ -1,0 +1,20 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% if page.image %}
+    {% image page.image fill-1844x939 as image %}
+
+<!-- Header -->
+<header class="hero-image" style="background-image:url('{{ image.url }}')"></header>
+
+{% else %}
+    <div class="w3-container">
+        <div class="w3-row">
+            <div class="w3-col">
+                <h1>{{ page.title }}</h1>
+                {% if page.subtitle %}
+                    <p class="">{{ page.subtitle }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endif %}

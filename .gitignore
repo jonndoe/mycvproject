@@ -1,0 +1,12 @@
+.DS_Store
+*.pyc
+*.log
+*.swp
+*.retry
+*~
+/logs
+/data
+.~*
+common/CACHE
+__pycache__
+!.gitignore
